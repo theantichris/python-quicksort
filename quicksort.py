@@ -1,6 +1,6 @@
 def quicksort(list, start, end):
     if start >= end:
-        return
+        return list
 
     print(list[start])
     start += 1
