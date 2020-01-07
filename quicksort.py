@@ -12,22 +12,22 @@ def quicksort(list, start, end):
     list[end], list[pivot_idx] = list[pivot_idx], list[end]
 
     # tracks all elements that should be to the left (lesser than) the pivot
-    lesser_than_pointer = start
+    less_than_pointer = start
 
-    for idx in range(start, end):
+    for i in range(start, end):
         # if the element is out of place
-        if list[idx] < pivot_element:
+        if list[i] < pivot_element:
             # swap the element to the right-most portion of the lesser elements
-            list[idx], list[lesser_than_pointer] = list[lesser_than_pointer], list[idx]
+            list[i], list[less_than_pointer] = list[less_than_pointer], list[i]
             # increment since we have 1 more lesser than element
-            lesser_than_pointer += 1
+            less_than_pointer += 1
 
     # move the pivot to the right-most portion of the lesser elemtents
-    list[end], list[lesser_than_pointer] = list[lesser_than_pointer], list[end]
+    list[end], list[less_than_pointer] = list[less_than_pointer], list[end]
 
     # sort the left and right lists
-    quicksort(list, start, lesser_than_pointer - 1)
-    quicksort(list, lesser_than_pointer + 1, end)
+    quicksort(list, start, less_than_pointer - 1)
+    quicksort(list, less_than_pointer + 1, end)
 
 unsorted_list = [3, 7, 12, 24, 36, 42]
 shuffle(unsorted_list)
